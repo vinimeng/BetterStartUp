@@ -17,10 +17,10 @@ namespace BetterStartUp
 
         private struct Program
         {
-            string nome; // Nome para exibição
-            string caminho; // Caminho completo para executável
-            int ordem; // Inteiro com a ordem que deve ser executado
-            int delay; // Inteiro com delay em segundos
+            string nome; // Nome para exibição.
+            string caminho; // Caminho completo para executável.
+            int ordem; // Inteiro com a ordem que deve ser executado.
+            int delay; // Inteiro com delay em segundos.
         };
 
         public BetterStartUp()
