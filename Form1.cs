@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +14,18 @@ namespace BetterStartUp
 {
     public partial class BetterStartUp : Form
     {
-        private RegistryKey key; 
+        private RegistryKey key;
 
-        private struct Program
+        public struct Programa
         {
-            string nome; // Nome para exibição.
-            string caminho; // Caminho completo para executável.
-            int ordem; // Inteiro com a ordem que deve ser executado.
-            int delay; // Inteiro com delay em segundos.
+            public string nome; // Nome para exibição.
+            public string caminho; // Caminho completo para executável.
+            public int ordem; // Inteiro com a ordem que deve ser executado.
+            public int delay; // Inteiro com delay em segundos.
+            public override string ToString()
+            {
+                return nome;
+            }
         };
 
         public BetterStartUp()
@@ -35,6 +40,7 @@ namespace BetterStartUp
                 }
             }
             key.Close();
+            openFileAddPrograma.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         }
 
         private void btnWindowsAddBetterStartUp_Click(object sender, EventArgs e)
@@ -49,7 +55,7 @@ namespace BetterStartUp
             }
             else
             {
-                MessageBox.Show("BetterStartUp já adicionado.");
+                MessageBox.Show("BetterStartUp já adicionado.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -64,7 +70,41 @@ namespace BetterStartUp
             }
             else
             {
-                MessageBox.Show("Selecione algum programa para remover.");
+                MessageBox.Show("Selecione algum programa para remover.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnAddPrograma_Click(object sender, EventArgs e)
+        {
+            if(openFileAddPrograma.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileAddPrograma.FileName;
+                string fileName = openFileAddPrograma.SafeFileName;
+
+                bool doIt = true;
+
+                foreach(Programa g in listBoxBetterStartUp.Items)
+                {
+                    if (g.caminho == filePath)
+                    {
+                        doIt = false;
+                    }
+                }
+
+                if (doIt)
+                {
+                    Programa p;
+                    p.nome = fileName;
+                    p.caminho = filePath;
+                    p.delay = 0;
+                    p.ordem = listBoxBetterStartUp.Items.Count;
+
+                    listBoxBetterStartUp.Items.Add(p);
+                }
+                else
+                {
+                    MessageBox.Show("Programa já adicionado.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }
