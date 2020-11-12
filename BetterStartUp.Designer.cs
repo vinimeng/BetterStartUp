@@ -126,6 +126,7 @@
             this.btnEditarSelecionado.TabIndex = 5;
             this.btnEditarSelecionado.Text = "Editar Selecionado";
             this.btnEditarSelecionado.UseVisualStyleBackColor = true;
+            this.btnEditarSelecionado.Click += new System.EventHandler(this.btnEditarSelecionado_Click);
             // 
             // btnRemoverSelecionado
             // 
@@ -135,6 +136,7 @@
             this.btnRemoverSelecionado.TabIndex = 4;
             this.btnRemoverSelecionado.Text = "Remover Selecionado";
             this.btnRemoverSelecionado.UseVisualStyleBackColor = true;
+            this.btnRemoverSelecionado.Click += new System.EventHandler(this.btnRemoverSelecionado_Click);
             // 
             // btnAddPrograma
             // 

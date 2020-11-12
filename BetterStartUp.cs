@@ -12,21 +12,20 @@ using System.Windows.Forms;
 
 namespace BetterStartUp
 {
+    public struct Programa
+    {
+        public string nome; // Nome para exibição.
+        public string caminho; // Caminho completo para executável.
+        public int ordem; // Inteiro com a ordem que deve ser executado.
+        public int delay; // Inteiro com delay em segundos.
+        public override string ToString()
+        {
+            return nome;
+        }
+    };
     public partial class BetterStartUp : Form
     {
         private RegistryKey key;
-
-        public struct Programa
-        {
-            public string nome; // Nome para exibição.
-            public string caminho; // Caminho completo para executável.
-            public int ordem; // Inteiro com a ordem que deve ser executado.
-            public int delay; // Inteiro com delay em segundos.
-            public override string ToString()
-            {
-                return nome;
-            }
-        };
 
         public BetterStartUp()
         {
@@ -105,6 +104,44 @@ namespace BetterStartUp
                 {
                     MessageBox.Show("Programa já adicionado.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+        }
+
+        private void btnEditarSelecionado_Click(object sender, EventArgs e)
+        {
+            if (listBoxBetterStartUp.SelectedItem != null)
+            {
+                FormEditarPrograma f2 = new FormEditarPrograma((Programa)listBoxBetterStartUp.SelectedItem, this);
+                f2.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Selecione algum programa para editar.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        public void editPrograma(Programa original, Programa editado)
+        {
+            for(int i = 0; i < listBoxBetterStartUp.Items.Count; i++)
+            {
+                Programa g = (Programa)listBoxBetterStartUp.Items[i];
+                if (g.caminho == original.caminho)
+                {
+                    listBoxBetterStartUp.Items[i] = editado;
+                    break;
+                }
+            }
+        }
+
+        private void btnRemoverSelecionado_Click(object sender, EventArgs e)
+        {
+            if (listBoxBetterStartUp.SelectedItem != null)
+            {
+                listBoxBetterStartUp.Items.Remove(listBoxBetterStartUp.SelectedItem);
+            }
+            else
+            {
+                MessageBox.Show("Selecione algum programa para remover.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
