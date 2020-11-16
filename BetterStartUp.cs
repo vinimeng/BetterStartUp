@@ -144,5 +144,77 @@ namespace BetterStartUp
                 MessageBox.Show("Selecione algum programa para remover.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            if (listBoxBetterStartUp.SelectedItem != null)
+            {
+                Programa selected = (Programa)listBoxBetterStartUp.SelectedItem;
+
+                for (int i = 0; i < listBoxBetterStartUp.Items.Count; i++)
+                {
+                    Programa g = (Programa)listBoxBetterStartUp.Items[i];
+                    if (g.caminho == selected.caminho)
+                    {
+                        if (i == 0)
+                        {
+                            MessageBox.Show("Programa já é o primeiro da lista.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            Programa anterior = (Programa)listBoxBetterStartUp.Items[i - 1];
+                            listBoxBetterStartUp.Items[i - 1] = listBoxBetterStartUp.Items[i];
+                            listBoxBetterStartUp.Items[i] = anterior;
+                            listBoxBetterStartUp.SelectedIndex = listBoxBetterStartUp.SelectedIndex - 1;
+                        }
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione algum programa para modificar sua ordem.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+            if (listBoxBetterStartUp.SelectedItem != null)
+            {
+                Programa selected = (Programa)listBoxBetterStartUp.SelectedItem;
+
+                for (int i = 0; i < listBoxBetterStartUp.Items.Count; i++)
+                {
+                    Programa g = (Programa)listBoxBetterStartUp.Items[i];
+                    if (g.caminho == selected.caminho)
+                    {
+                        if (i == (listBoxBetterStartUp.Items.Count - 1))
+                        {
+                            MessageBox.Show("Programa já é o último da lista.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            Programa proximo = (Programa)listBoxBetterStartUp.Items[i + 1];
+                            listBoxBetterStartUp.Items[i + 1] = listBoxBetterStartUp.Items[i];
+                            listBoxBetterStartUp.Items[i] = proximo;
+                            listBoxBetterStartUp.SelectedIndex = listBoxBetterStartUp.SelectedIndex + 1;
+                        }
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione algum programa para modificar sua ordem.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void listBoxBetterStartUp_DoubleClick(object sender, EventArgs e)
+        {
+            if (listBoxBetterStartUp.SelectedItem != null)
+            {
+                btnEditarSelecionado_Click(null, null);
+            }
+        }
     }
 }

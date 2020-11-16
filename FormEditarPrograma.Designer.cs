@@ -54,7 +54,7 @@
             this.textBoxCaminho.Location = new System.Drawing.Point(15, 64);
             this.textBoxCaminho.Name = "textBoxCaminho";
             this.textBoxCaminho.Size = new System.Drawing.Size(457, 20);
-            this.textBoxCaminho.TabIndex = 1;
+            this.textBoxCaminho.TabIndex = 2;
             // 
             // label2
             // 
@@ -75,14 +75,15 @@
             0});
             this.numericUpDownDelay.Name = "numericUpDownDelay";
             this.numericUpDownDelay.Size = new System.Drawing.Size(457, 20);
-            this.numericUpDownDelay.TabIndex = 4;
+            this.numericUpDownDelay.TabIndex = 3;
             // 
             // textBoxNomeExibicao
             // 
             this.textBoxNomeExibicao.Location = new System.Drawing.Point(15, 25);
+            this.textBoxNomeExibicao.MaxLength = 70;
             this.textBoxNomeExibicao.Name = "textBoxNomeExibicao";
             this.textBoxNomeExibicao.Size = new System.Drawing.Size(457, 20);
-            this.textBoxNomeExibicao.TabIndex = 6;
+            this.textBoxNomeExibicao.TabIndex = 1;
             // 
             // label3
             // 
@@ -98,7 +99,7 @@
             this.buttonOk.Location = new System.Drawing.Point(316, 141);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
-            this.buttonOk.TabIndex = 7;
+            this.buttonOk.TabIndex = 4;
             this.buttonOk.Text = "OK";
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
@@ -108,7 +109,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(397, 141);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelar.TabIndex = 8;
+            this.buttonCancelar.TabIndex = 5;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);

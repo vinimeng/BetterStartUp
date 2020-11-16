@@ -108,15 +108,17 @@
             this.btnUp.TabIndex = 7;
             this.btnUp.Text = "↑";
             this.btnUp.UseVisualStyleBackColor = true;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             // 
             // btnDown
             // 
             this.btnDown.Location = new System.Drawing.Point(316, 294);
             this.btnDown.Name = "btnDown";
             this.btnDown.Size = new System.Drawing.Size(32, 37);
-            this.btnDown.TabIndex = 6;
+            this.btnDown.TabIndex = 8;
             this.btnDown.Text = "↓";
             this.btnDown.UseVisualStyleBackColor = true;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
             // btnEditarSelecionado
             // 
@@ -133,7 +135,7 @@
             this.btnRemoverSelecionado.Location = new System.Drawing.Point(182, 294);
             this.btnRemoverSelecionado.Name = "btnRemoverSelecionado";
             this.btnRemoverSelecionado.Size = new System.Drawing.Size(82, 37);
-            this.btnRemoverSelecionado.TabIndex = 4;
+            this.btnRemoverSelecionado.TabIndex = 6;
             this.btnRemoverSelecionado.Text = "Remover Selecionado";
             this.btnRemoverSelecionado.UseVisualStyleBackColor = true;
             this.btnRemoverSelecionado.Click += new System.EventHandler(this.btnRemoverSelecionado_Click);
@@ -143,7 +145,7 @@
             this.btnAddPrograma.Location = new System.Drawing.Point(6, 294);
             this.btnAddPrograma.Name = "btnAddPrograma";
             this.btnAddPrograma.Size = new System.Drawing.Size(82, 37);
-            this.btnAddPrograma.TabIndex = 3;
+            this.btnAddPrograma.TabIndex = 4;
             this.btnAddPrograma.Text = "Add Programa";
             this.btnAddPrograma.UseVisualStyleBackColor = true;
             this.btnAddPrograma.Click += new System.EventHandler(this.btnAddPrograma_Click);
@@ -155,6 +157,7 @@
             this.listBoxBetterStartUp.Name = "listBoxBetterStartUp";
             this.listBoxBetterStartUp.Size = new System.Drawing.Size(342, 264);
             this.listBoxBetterStartUp.TabIndex = 3;
+            this.listBoxBetterStartUp.DoubleClick += new System.EventHandler(this.listBoxBetterStartUp_DoubleClick);
             // 
             // openFileAddPrograma
             // 
