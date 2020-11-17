@@ -21,6 +21,7 @@ namespace BetterStartUp
             bsup = bs;
             textBoxNomeExibicao.Text = p.nome;
             textBoxCaminho.Text = p.caminho;
+            textBoxArgumentos.Text = p.argumentos;
             numericUpDownDelay.Value = p.delay;
         }
 
@@ -34,6 +35,7 @@ namespace BetterStartUp
             Programa original = prg;
             prg.nome = textBoxNomeExibicao.Text;
             prg.caminho = textBoxCaminho.Text;
+            prg.argumentos = textBoxArgumentos.Text;
             prg.delay = (int)numericUpDownDelay.Value;
             bsup.editPrograma(original, prg);
             this.Dispose();

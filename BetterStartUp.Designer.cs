@@ -180,6 +180,7 @@
             this.Name = "BetterStartUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BetterStartUp";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BetterStartUp_FormClosing);
             this.groupBoxWindows.ResumeLayout(false);
             this.groupBoxBetterStartUp.ResumeLayout(false);
             this.ResumeLayout(false);
