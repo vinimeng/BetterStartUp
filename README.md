@@ -1,5 +1,5 @@
 # BetterStartUp
-Pequeno programa feito em C# para gerenciar inicialização de programas no sistema operacional Windows.
+Pequeno programa feito em C# para gerenciar a inicialização de programas no sistema operacional Windows.
 
 ## Utilização
 - Deixe o executável do programa em uma pasta que não necessite de privilégios de administrador. 
